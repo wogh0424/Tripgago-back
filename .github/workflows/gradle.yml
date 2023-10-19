@@ -26,7 +26,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ${{ secrets.PROJECT_NAME }} ./spring-boot
+        docker build -t ${{ secrets.PROJECT_NAME }} .
         docker tag ${{ secrets.PROJECT_NAME }} ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         docker ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest
