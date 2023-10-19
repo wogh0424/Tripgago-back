@@ -17,12 +17,12 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
-
-    - name: Build Spring Boot application
-      run: |
-        cd Tripgago-back
-        ./gradlew build
-      # Add more steps for testing as needed
+    
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    
+    - name: Build with Gradle
+      run : ./gradlew clean build
 
     - name: Build Docker image
       run: |
