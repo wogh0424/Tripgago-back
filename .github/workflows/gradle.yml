@@ -20,7 +20,7 @@ jobs:
 
     - name: Build Spring Boot application
       run: |
-        cd /Tripgago-back
+        cd Tripgago-back
         ./gradlew build
       # Add more steps for testing as needed
 
