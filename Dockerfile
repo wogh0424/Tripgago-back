@@ -5,8 +5,9 @@ FROM openjdk:11
 WORKDIR /app
 
 # 호스트 머신의 스프링 부트 애플리케이션 JAR 파일을 복사
-COPY build/libs/myapp.jar /app/app.jar
+ARG JAR_FILE=target/*.jar
 
+COPY ${JAR_FILE} addp.jar
 # 컨테이너에서 사용할 포트를 노출
 EXPOSE 8080
 
