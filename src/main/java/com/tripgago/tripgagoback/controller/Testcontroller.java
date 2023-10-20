@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
     public class Testcontroller {
         @GetMapping("/api/users")
         public String getUsers() {
-            return "User data from Spring Boot";
+            return "Axios Transfer test";
         }
     }
 
