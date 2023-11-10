@@ -29,7 +29,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-          docker build -t ${{ secrets.PROJECT_NAME }} .
-          docker tag ${{ secrets.PROJECT_NAME }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
-          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
+        docker build -t ${{ secrets.PROJECT_NAME }} .
+        docker tag ${{ secrets.PROJECT_NAME }} ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest
