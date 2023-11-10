@@ -11,4 +11,6 @@ RUN ./gradlew bootJar
 FROM openjdk:11
 COPY --from=builder /backend/build/libs/*.jar app.jar
 
+ENV SPRING_PROFILES_ACTIVE=prod
+
 ENTRYPOINT ["java","-jar","/app.jar"]
