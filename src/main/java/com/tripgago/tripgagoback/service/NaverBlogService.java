@@ -1,5 +1,6 @@
 package com.tripgago.tripgagoback.service;
 
+import com.tripgago.tripgagoback.component.GetAPIKEY;
 import com.tripgago.tripgagoback.model.NaverProductDto;
 import com.tripgago.tripgagoback.model.NaverRequestVariableDto;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,10 @@ import java.util.List;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class NaverBlogService {
+
+    private final GetAPIKEY getAPIKEY;
 
     public List<NaverProductDto> naverShopSearchAPI(NaverRequestVariableDto naverVariable) {
         String url = "https://openapi.naver.com/";
@@ -36,8 +40,8 @@ public class NaverBlogService {
 
         RequestEntity<Void> req = RequestEntity
                 .get(uri)
-                .header("X-Naver-Client-Id", "tIQAtTUj6REirsdJuCO0")
-                .header("X-Naver-Client-Secret", "qNIxLZ7ZZk")
+                .header("X-Naver-Client-Id", getAPIKEY.getKeyid())
+                .header("X-Naver-Client-Secret", getAPIKEY.getKeypw())
                 .build();
 
         ResponseEntity<String> result = restTemplate.exchange(req, String.class);
