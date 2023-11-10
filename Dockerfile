@@ -1,5 +1,6 @@
 FROM openjdk:11 AS builder
 WORKDIR /backend
+ARG KEY_ID
 COPY gradlew .
 COPY gradle gradle
 COPY build.gradle .
