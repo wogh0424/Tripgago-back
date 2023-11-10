@@ -1,6 +1,5 @@
 FROM openjdk:11 AS builder
 WORKDIR /backend
-ARG KEY_ID
 COPY gradlew .
 COPY gradle gradle
 COPY build.gradle .
@@ -11,7 +10,7 @@ RUN ./gradlew bootJar
 
 FROM openjdk:11
 COPY --from=builder /backend/build/libs/*.jar app.jar
-
+ARG KEY_ID
 ENV SPRING_PROFILES_ACTIVE=prod
 ENV KeyId=$KEY_ID
 
