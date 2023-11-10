@@ -25,7 +25,8 @@ jobs:
       run : ./gradlew clean build
       env:
         API_KEY: ${{ secrets.API_KEY }}
-      
+        API_PASSWORD: ${{ secrets.API_PASSWORD }}
+
 
     - name: Build Docker image
       run: |
