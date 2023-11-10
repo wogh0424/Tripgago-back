@@ -2,6 +2,7 @@ package com.tripgago.tripgagoback.service;
 
 import com.tripgago.tripgagoback.model.NaverProductDto;
 import com.tripgago.tripgagoback.model.NaverRequestVariableDto;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,10 +17,9 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class NaverProductService {
+public class NaverBlogService {
 
     public List<NaverProductDto> naverShopSearchAPI(NaverRequestVariableDto naverVariable) {
-        //참고 url: https://ssong915.tistory.com/36
         String url = "https://openapi.naver.com/";
 
         URI uri = UriComponentsBuilder.fromHttpUrl(url)
