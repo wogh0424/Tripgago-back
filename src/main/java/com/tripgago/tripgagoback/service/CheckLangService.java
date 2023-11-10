@@ -1,9 +1,8 @@
 package com.tripgago.tripgagoback.service;
 
+import com.tripgago.tripgagoback.component.GetAPIKEY;
 import com.tripgago.tripgagoback.component.TranslationAPI;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -18,12 +17,11 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CheckLangService {
     private final TranslationAPI translationAPI;
-    @Value("${KeyId}")
-    private String keyid;
+    private final GetAPIKEY getApikey;
     public String checkLang(String input){
 
-        String clientId = keyid; //애플리케이션 클라이언트 아이디값";
-        String clientSecret = "qNIxLZ7ZZk"; //애플리케이션 클라이언트 시크릿값";
+        String clientId = getApikey.getKeyid(); //애플리케이션 클라이언트 아이디값";
+        String clientSecret = getApikey.getKeypw(); //애플리케이션 클라이언트 시크릿값";
         String query;
         try {
             query = URLEncoder.encode(input, "UTF-8");

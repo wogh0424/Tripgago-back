@@ -13,9 +13,12 @@ import java.util.Map;
 @Component
 @RequiredArgsConstructor
 public class TranslationAPI {
-     public String Translation(String langcode, String input) {
-        String clientId = "tIQAtTUj6REirsdJuCO0";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "qNIxLZ7ZZk";//애플리케이션 클라이언트 시크릿값";
+    private final GetAPIKEY getApikey;
+
+    public String Translation(String langcode, String input) {
+        System.out.println(getApikey.getKeyid());
+        String clientId = getApikey.getKeyid();//애플리케이션 클라이언트 아이디값";
+        String clientSecret = getApikey.getKeypw();//애플리케이션 클라이언트 시크릿값";
 
         String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
         String text;
