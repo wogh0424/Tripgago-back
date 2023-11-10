@@ -12,6 +12,5 @@ FROM openjdk:11
 COPY --from=builder /backend/build/libs/*.jar app.jar
 ARG KEY_ID
 ENV SPRING_PROFILES_ACTIVE=prod
-ENV KeyId=$KEY_ID
 
 ENTRYPOINT ["java","-jar","/app.jar"]
