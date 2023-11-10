@@ -13,10 +13,9 @@ import java.util.Map;
 @Component
 @RequiredArgsConstructor
 public class TranslationAPI {
-    private final DockerKey dockerKey;
      public String Translation(String langcode, String input) {
-        String clientId = dockerKey.getApiKey();//애플리케이션 클라이언트 아이디값";
-        String clientSecret = dockerKey.getApiPw();//애플리케이션 클라이언트 시크릿값";
+        String clientId = "tIQAtTUj6REirsdJuCO0";//애플리케이션 클라이언트 아이디값";
+        String clientSecret = "qNIxLZ7ZZk";//애플리케이션 클라이언트 시크릿값";
 
         String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
         String text;
